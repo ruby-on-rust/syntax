@@ -157,6 +157,7 @@ pub struct Parser {
 
     // private fields for RoR
     static_env: StaticEnv,
+    context: Context,
 
 }
 
@@ -176,6 +177,7 @@ impl Parser {
 
             // private fields for RoR
             static_env: StaticEnv::new(),
+            context: Context::new(),
         }
     }
 
