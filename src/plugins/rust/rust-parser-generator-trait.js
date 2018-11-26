@@ -97,8 +97,7 @@ const RustParserGeneratorTrait = {
     action = this._actionFromHandler(action, '.tokenizer');
 
     // Verbose debug info
-    action += `\n// raw production: ${production._rawLHS} -> ${production._rawRHS}\n`;
-    action += "\nprintln!(\"    *** PARSER: _handler#{i}\");\n"
+    action += `\nprintln!(\"    *** PARSER production: ${production._rawLHS} -> ${production._rawRHS}\");\n`
     action += "\nprintln!(\"    values_stack: {:?}\", self.values_stack);\n"
 
     action = this._generateArgsPrologue(

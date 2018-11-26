@@ -2,12 +2,12 @@
 #![allow(unused_mut)]
 #![allow(unreachable_code)]
 
-extern crate regex;
+// extern crate regex;
 
-#[macro_use]
-extern crate lazy_static;
+// #[macro_use]
+// extern crate lazy_static;
 
-use regex::Regex;
+// use regex::Regex;
 use std::collections::HashMap;
 
 /**
@@ -182,7 +182,7 @@ impl Parser {
     /**
      * Parses a string.
      */
-    pub fn parse(&mut self, string: &'static str) -> TResult {
+    pub fn parse(&mut self, string: &str) -> TResult {
         {{{ON_PARSE_BEGIN_CALL}}}
 
         // Initialize the tokenizer and the string.
