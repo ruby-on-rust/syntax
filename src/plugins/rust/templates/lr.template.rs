@@ -155,10 +155,6 @@ pub struct Parser {
      */
     handlers: [fn(&mut Parser) -> SV; {{{PRODUCTION_HANDLERS_COUNT}}}],
 
-    // private fields for RoR
-    static_env: StaticEnv,
-    context: Context,
-
 }
 
 impl Parser {
@@ -175,9 +171,6 @@ impl Parser {
 
             handlers: {{{PRODUCTION_HANDLERS_ARRAY}}}
 
-            // private fields for RoR
-            static_env: StaticEnv::new(),
-            context: Context::new(),
         }
     }
 
