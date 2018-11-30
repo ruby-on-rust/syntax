@@ -22,7 +22,7 @@ const DEFAULT_ERROR_HANDLER = `
   if token.value == EOF && !self.tokenizer.has_more_tokens() {
     panic!("Unexpected end of input.");
   }
-  self.tokenizer.panic_unexpected_token(token.value, token.start_line, token.start_column);
+  self.tokenizer.panic_unexpected_token(token, token.start_line, token.start_column);
 `;
 
 /**

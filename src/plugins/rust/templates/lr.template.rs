@@ -148,7 +148,7 @@ pub struct Parser {
     /**
      * Tokenizer instance.
      */
-    tokenizer: Tokenizer,
+    pub tokenizer: Tokenizer,
 
     /**
      * Semantic action handlers.
@@ -216,16 +216,10 @@ impl Parser {
 
                     shifted_token = token;
                     token = self.tokenizer.get_next_token();
-
-                    println!("*** PARSER: shifted_token: {:?}", shifted_token);
-                    println!("*** PARSER: next token: {:?}", token.value);
-                    println!("*** PARSER: values_stack: {:?}", self.values_stack);
                 },
 
                 // Reduce by production.
                 &TE::Reduce(production_number) => {
-                    println!("\n*** PARSER: REDUCE!");
-
                     let production = PRODUCTIONS[production_number];
 
                     self.tokenizer.yytext = shifted_token.value;
@@ -240,9 +234,6 @@ impl Parser {
                     // Call the handler, push result onto the stack.
                     let result_value = self.handlers[production_number](self);
 
-                    println!("*** PARSER: handler: {:?}", production_number );
-                    println!("*** PARSER: result_value: {:?}", result_value);
-
                     let previous_state = *self.states_stack.last().unwrap();
                     let symbol_to_reduce_with = production[0];
 
@@ -255,8 +246,6 @@ impl Parser {
                     };
 
                     self.states_stack.push(next_state);
-
-                    println!("*** PARSER: values_stack: {:?}", self.values_stack);
                 },
 
                 // Accept the string.
